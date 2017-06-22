@@ -18,8 +18,9 @@ Réponses aux questions posées
 -----------------------------
 
 Q1)
-Pour éviter les ifs et switch case à répétition, il est possible d'utiliser un tableau associatif.
+Pour éviter les ifs et switch case à répétition, il est possible d'utiliser des interfaces.
 Q2)
+C'est le principe d'inversion de dépendance qui énonce qu'il faut dépendre des abstractions plutôt que des implémentations.
 
 Q3)
 
