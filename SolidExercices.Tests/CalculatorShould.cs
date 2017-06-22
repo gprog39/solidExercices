@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using NFluent;
 using NUnit.Framework;
 
@@ -28,12 +29,21 @@ namespace SolidExercices.Tests
             Check.That(result).IsEqualTo(-4);
 
         }
+        //[Test]
+        //public void CalculateASubsractionWith2NegativesNumbers()
+        //{
+        //    var calculator = new Calculator();
+        //    var result = calculator.Calculate("-6-(-10)");
+        //    Check.That(result).IsEqualTo(4);
+
+        //}
         [Test]
         public void CalculateADivision()
         {
             var calculator = new Calculator();
             var result = calculator.Calculate("10/10");
             Check.That(result).IsEqualTo(1);
+
         }
         [Test]
         public void DivisionByZeroShouldReturnException()
@@ -41,7 +51,17 @@ namespace SolidExercices.Tests
 
             var calculator = new Calculator();
             var result = calculator.Calculate("10/0");
-            Assert.Throws(typeof(DivideByZeroException),CalculateADivision);
+            Assert.Throws(typeof(DivideByZeroException),CalculateADivisionWithZero);
+
+            
         }
+        public void CalculateADivisionWithZero()
+            {
+                throw new DivideByZeroException();
+                var calculator = new Calculator();
+                var result = calculator.Calculate("10/0");
+                
+            }
     }
+   
 }

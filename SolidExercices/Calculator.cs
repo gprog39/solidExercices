@@ -12,21 +12,21 @@ namespace SolidExercices
         public double Calculate(string operation)
         {
             string[] splitOperation = operation.Split('+', '-', '*', '/');
-
-            if (operation.Contains('+'))
+            
+            if (operation.Contains('+') && !String.IsNullOrEmpty(operation))
             {
 
                 return Convert.ToDouble(splitOperation[0]) + Convert.ToDouble(splitOperation[1]);
             }
             else
             {
-                if (operation.Contains(('-')))
+                if (operation.Contains(('-'))&& !String.IsNullOrEmpty(operation))
                 {
                     return Convert.ToDouble(splitOperation[0]) - Convert.ToDouble(splitOperation[1]);
                 }
                 else
                 {
-                    if (operation.Contains(('*')))
+                    if (operation.Contains(('*')) && !String.IsNullOrEmpty(operation))
                     {
                         return Convert.ToDouble(splitOperation[0]) * Convert.ToDouble(splitOperation[1]);
                     }
@@ -37,7 +37,7 @@ namespace SolidExercices
                         {
                             return Convert.ToDouble(splitOperation[0]) / Convert.ToDouble(splitOperation[1]);
                         }
-                        catch (DivideByZeroException edbz)
+                        catch (Exception edbz)
                         {
                             Console.WriteLine("Erreur: division par zéro");
                         }
