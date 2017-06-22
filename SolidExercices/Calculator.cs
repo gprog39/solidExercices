@@ -1,13 +1,51 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
+using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace SolidExercices
 {
     public class Calculator
     {
+
         public double Calculate(string operation)
         {
-            throw new NotImplementedException();
+            string[] splitOperation = operation.Split('+', '-', '*', '/');
+
+            if (operation.Contains('+'))
+            {
+
+                return Convert.ToDouble(splitOperation[0]) + Convert.ToDouble(splitOperation[1]);
+            }
+            else
+            {
+                if (operation.Contains(('-')))
+                {
+                    return Convert.ToDouble(splitOperation[0]) - Convert.ToDouble(splitOperation[1]);
+                }
+                else
+                {
+                    if (operation.Contains(('*')))
+                    {
+                        return Convert.ToDouble(splitOperation[0]) * Convert.ToDouble(splitOperation[1]);
+                    }
+                    else
+
+                    {
+                        try
+                        {
+                            return Convert.ToDouble(splitOperation[0]) / Convert.ToDouble(splitOperation[1]);
+                        }
+                        catch (DivideByZeroException edbz)
+                        {
+                            Console.WriteLine("Erreur: division par zéro");
+                        }
+
+                    }
+                    return 0.0;
+                }
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ Réponses aux questions posées
 -----------------------------
 
 Q1)
-
+Pour éviter les ifs et switch case à répétition, il est possible d'utiliser un tableau associatif.
 Q2)
 
 Q3)
